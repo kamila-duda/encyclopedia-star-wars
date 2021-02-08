@@ -1,11 +1,12 @@
 import React from "react";
 import { StyledTileContainer, StyledTitle } from "./styled";
 
-const Tile = ({ title }) => {
+const Tile = ({ title}) => {
+  
   return (
     <>
       <StyledTileContainer>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledTitle >{title}</StyledTitle>
       </StyledTileContainer>
     </>
   );
