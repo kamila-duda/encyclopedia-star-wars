@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTileContainer = styled.div`
-width: 120px;
+width: 100%;
 border: 1px solid ${({theme})=>theme.color.yellow};
 border-radius: 15px;
 cursor: pointer;

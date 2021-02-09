@@ -1,17 +1,24 @@
-import React from 'react';
-import HomePage from './features/HomePage';
-import { StyledHeader } from './styled';
+import React from "react";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { toHomePage, toResourceList } from "./core/routes";
+import HomePage from "./features/HomePage";
+import ResourceListPage from "./features/ResourceListPage";
 
 function App() {
   return (
-   <>
-   <StyledHeader>
-   <h1>Welcome to The Star Wars Encyclopedia</h1>
-   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus erat, efficitur sed posuere id, feugiat id orci. Curabitur bibendum libero in gravida ultrices. Duis eu odio sit amet lorem dignissim dignissim ac in orci. Cras sit amet cursus enim. Morbi eu elit eu erat facilisis hendrerit.
-   </p>
-   </StyledHeader>
-   <HomePage/>
-   </>
+    <HashRouter>
+      <Switch>
+        <Route exact path={toHomePage()}>
+          <HomePage />
+        </Route>
+        <Route path={toResourceList()}>
+          <ResourceListPage />
+        </Route>
+        <Route path={"/"}>
+          <Redirect to={toHomePage()} />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 }
 

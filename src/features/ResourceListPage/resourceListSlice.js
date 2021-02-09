@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const listSlice = createSlice({
-  name: "list",
+export const resourceListSlice = createSlice({
+  name: "resourceList",
   initialState: {
     status: "initial",
     checkResource: "",
+    resourceContent: {},
+    results: [],
   },
   reducers: {
     fetchResourceContentError: () => ({
@@ -12,7 +14,8 @@ export const listSlice = createSlice({
     }),
     fetchResourceContentSuccess: (state, { payload: resourceContent }) => {
       state.status = "success";
-      state.resourceContent = resourceContent;
+      state.resourceContent=resourceContent;
+      state.results = resourceContent.results;
     },
     fetchResourceContent: (state, {payload: key}) => {
       state.status = "loading";
@@ -25,12 +28,16 @@ export const {
   fetchResourceContentError,
   fetchResourceContentSuccess,
   fetchResourceContent,
-} = listSlice.actions;
+} = resourceListSlice.actions;
 
-const selectResourceState = (state) => state.list;
+const selectResourceState = (state) => state.resourceList;
 export const selectResourceContent = (state) =>
   selectResourceState(state).resourceContent;
+  export const selectResourceResults = (state) =>
+  selectResourceState(state).results;
 export const selectResourceContentStatus = (state) =>
   selectResourceState(state).status;
+  export const selectResourceContentList = (state) =>
+  selectResourceState(state).checkResource;
 
-export default listSlice.reducer;
+export default resourceListSlice.reducer;
