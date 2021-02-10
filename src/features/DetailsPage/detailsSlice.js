@@ -10,9 +10,11 @@ export const detailsSlice = createSlice({
   reducers: {
     getDetails: (state, { payload: path }) => {
       state.path = path;
+      state.status = "loading";
     },
     getDetailsSuccess: (state, { payload: details }) => {
       state.details = details;
+      state.status = "success";
     },
     getDetailsError: () => ({
       status: "error",
@@ -29,5 +31,7 @@ export const {
 const selectDetailsState = (state) => state.details;
 export const selectDetailsResults = (state) =>
   selectDetailsState(state).details;
+  export const selectDetailsStatus = (state) =>
+  selectDetailsState(state).status;
 
 export default detailsSlice.reducer;

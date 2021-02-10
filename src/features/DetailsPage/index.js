@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Container from "../../common/Container";
+import Loading from "../../common/Loading";
 import { fetchFromAPIdetail } from "../fetchFromAPI";
-import { getDetails, selectDetailsResults } from "./detailsSlice";
+import { getDetails, selectDetailsResults, selectDetailsStatus } from "./detailsSlice";
 import { StyledTitle } from "./styled";
 
 const DetailsPage = () => {
   const dispatch = useDispatch();
 
   const results = useSelector(selectDetailsResults);
+  const status = useSelector(selectDetailsStatus);
 
   const getHomeworld = () => {
     const homeworld = fetchFromAPIdetail(results.homeworld);
@@ -18,7 +20,7 @@ const DetailsPage = () => {
     // console.log(homeworldName)
     return homeworldName.name;
   };
-  
+
   const { resource, id } = useParams();
 
   useEffect(() => {
@@ -36,6 +38,10 @@ const DetailsPage = () => {
   }
   return (
     <>
+    {status === "loading" ? (
+        <Loading/>
+      ) : (
+        <>
       <StyledTitle>test</StyledTitle>
       <Container>
         <ul>{items}</ul>
@@ -50,6 +56,8 @@ const DetailsPage = () => {
         <p>{results.homeworld ? getHomeworld() : ""}</p>
         <p>{results.films ? results.films : ""}</p>
       </Container>
+      </>
+      )}
     </>
   );
 };

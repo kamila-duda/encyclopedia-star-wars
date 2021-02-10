@@ -10,6 +10,7 @@ import {
   selectResourceStatus,
 } from "./homeSlice";
 import { StyledHeader, StyledLink } from "./styled";
+import Loading from "../../common/Loading";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const HomePage = () => {
   return (
     <>
       {status === "loading" ? (
-        <p>wait</p>
+        <Loading/>
       ) : (
         <>
           <StyledHeader>

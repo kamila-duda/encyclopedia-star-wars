@@ -11,6 +11,7 @@ import {
 import { StyledLink, StyledTitle } from "./styled";
 import { toDetailsPage } from "../../core/routes";
 import { useParams } from "react-router-dom";
+import Loading from "../../common/Loading";
 
 const ResourceListPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const ResourceListPage = () => {
   return (
     <>
       {status === "loading" ? (
-        <p>wait</p>
+        <Loading/>
       ) : (
         <>
           <StyledTitle>{resource}</StyledTitle>
