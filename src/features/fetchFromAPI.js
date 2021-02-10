@@ -27,3 +27,14 @@ export const fetchFromAPIdetail = async (path) => {
     console.error("ups");
   }
 };
+
+export const fetchExtraDetailFromAPI = async (array, fieldName) => {
+  try {
+    const response = await Promise.all(
+      array.map(item => fetch(item).then(res => res.json()).then(r=>r[fieldName]))
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
