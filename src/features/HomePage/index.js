@@ -9,7 +9,7 @@ import {
   selectResource,
   selectResourceStatus,
 } from "./homeSlice";
-import { StyledHeader, StyledLink } from "./styled";
+import { StyledHeader, StyledSubTitle, StyledLink, StyledTitle } from "./styled";
 import Loading from "../../common/Loading";
 
 const HomePage = () => {
@@ -28,7 +28,9 @@ const HomePage = () => {
       ) : (
         <>
           <StyledHeader>
-            <h1>Welcome to The Star Wars Encyclopedia</h1>
+            <StyledSubTitle>Welcome to</StyledSubTitle>
+            <StyledTitle>The Star Wars</StyledTitle>
+            <StyledSubTitle>Encyclopedia</StyledSubTitle>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus
               erat, efficitur sed posuere id, feugiat id orci. Curabitur

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import background from "../assets/background.jpg";
 
 export const GlobalStyle = createGlobalStyle`
       html {
@@ -13,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
     } 
       body {
         background-color: ${({ theme }) => theme.color.dark};
+        background-image: url(${background});
+        background-size: contain;
+        background-attachment: fixed;
         font-family: 'Kanit', sans-serif;
         color: ${({ theme }) => theme.color.yellow};
     }

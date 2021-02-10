@@ -4,6 +4,7 @@ export const StyledTileContainer = styled.div`
 width: 100%;
 border: 1px solid ${({theme})=>theme.color.yellow};
 border-radius: 15px;
+background-color: ${({theme})=>theme.color.dark};
 cursor: pointer;
 `;
 

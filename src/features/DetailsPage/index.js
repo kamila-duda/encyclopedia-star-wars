@@ -42,7 +42,7 @@ const DetailsPage = () => {
         <Loading/>
       ) : (
         <>
-      <StyledTitle>test</StyledTitle>
+      <StyledTitle>{results.name}</StyledTitle>
       <Container>
         <ul>{items}</ul>
         <p>{results.name ? results.name : ""}</p>

@@ -9,6 +9,6 @@ export const StyledLink = styled(Link)`
 
 export const StyledTitle = styled.h2`
 text-align: center;
-font-size: ${({theme})=>theme.fontSize.xlarge};
+font-size: ${({theme})=>theme.fontSize.xxlarge};
 text-transform: capitalize;
 `;
