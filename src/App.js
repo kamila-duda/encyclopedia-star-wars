@@ -1,8 +1,9 @@
 import React from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
-import { toHomePage, toResourceList } from "./core/routes";
+import { toDetailsPage, toHomePage, toResourceList } from "./core/routes";
 import HomePage from "./features/HomePage";
 import ResourceListPage from "./features/ResourceListPage";
+import DetailsPage from "./features/DetailsPage";
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <Route exact path={toHomePage()}>
           <HomePage />
         </Route>
-        <Route path={toResourceList()}>
+        <Route exact path={toDetailsPage()}>
+          <DetailsPage />
+        </Route>
+        <Route exact path={toResourceList()}>
           <ResourceListPage />
         </Route>
         <Route path={"/"}>
