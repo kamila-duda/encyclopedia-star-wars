@@ -4,7 +4,6 @@ import ListContainer from "../../common/ListContainer";
 import Tile from "../../common/Tile";
 import Container from "../../common/Container";
 import { toResourceList } from "../../core/routes";
-import { fetchResourceContent } from "../ResourceListPage/resourceListSlice";
 import {
   fetchResource,
   selectResource,
@@ -16,7 +15,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const resource = useSelector(selectResource);
   const status = useSelector(selectResourceStatus);
-  
 
   useEffect(() => {
     dispatch(fetchResource());
@@ -41,11 +39,7 @@ const HomePage = () => {
           <Container>
             <ListContainer home={true}>
               {Object.keys(resource).map((key) => (
-                <StyledLink
-                  key={key}
-                  onClick={() => dispatch(fetchResourceContent(key))}
-                  to={toResourceList({key: key})}
-                >
+                <StyledLink key={key} to={toResourceList({ resource: key })}>
                   <Tile title={key} />
                 </StyledLink>
               ))}

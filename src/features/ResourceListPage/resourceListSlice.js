@@ -14,10 +14,10 @@ export const resourceListSlice = createSlice({
     }),
     fetchResourceContentSuccess: (state, { payload: resourceContent }) => {
       state.status = "success";
-      state.resourceContent=resourceContent;
+      state.resourceContent = resourceContent;
       state.results = resourceContent.results;
     },
-    fetchResourceContent: (state, {payload: key}) => {
+    fetchResourceContent: (state, { payload: key }) => {
       state.status = "loading";
       state.checkResource = key;
     },
@@ -33,11 +33,9 @@ export const {
 const selectResourceState = (state) => state.resourceList;
 export const selectResourceContent = (state) =>
   selectResourceState(state).resourceContent;
-  export const selectResourceResults = (state) =>
+export const selectResourceResults = (state) =>
   selectResourceState(state).results;
 export const selectResourceContentStatus = (state) =>
   selectResourceState(state).status;
-  export const selectResourceContentList = (state) =>
-  selectResourceState(state).checkResource;
 
 export default resourceListSlice.reducer;

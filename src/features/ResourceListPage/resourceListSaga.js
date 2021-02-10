@@ -1,4 +1,4 @@
-import { call, put, delay, takeLatest, takeEvery } from "redux-saga/effects";
+import { call, put, delay, takeEvery } from "redux-saga/effects";
 import { fetchFromAPI } from "../../features/fetchFromAPI";
 import { fetchResourceContent, fetchResourceContentError, fetchResourceContentSuccess } from "./resourceListSlice";
 import store from "../../core/store";
