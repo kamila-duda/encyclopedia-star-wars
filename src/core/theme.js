@@ -12,7 +12,7 @@ export const theme = {
   color: {
     black: "000000",
     dark: "#020001",
-    yellow: "#8B8A2F",
+    yellow: "#e8e012",
     light: "FFFFFF",
   },
   media: {
