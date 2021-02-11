@@ -1,55 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import ListContainer from "../../common/ListContainer";
 import Tile from "../../common/Tile";
 import Container from "../../common/Container";
 import { toResourceList } from "../../core/routes";
 import {
-  fetchResource,
-  selectResource,
-  selectResourceStatus,
-} from "./homeSlice";
-import { StyledHeader, StyledSubTitle, StyledLink, StyledTitle } from "./styled";
-import Loading from "../../common/Loading";
+  StyledHeader,
+  StyledHeaderContainer,
+  StyledSubTitle,
+  StyledLink,
+  StyledTitle,
+} from "./styled";
+import { resources } from "../../resources";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const resource = useSelector(selectResource);
-  const status = useSelector(selectResourceStatus);
-
-  useEffect(() => {
-    dispatch(fetchResource());
-  }, []);
-
   return (
     <>
-      {status === "loading" ? (
-        <Loading/>
-      ) : (
-        <>
-          <StyledHeader>
-            <StyledSubTitle>Welcome to</StyledSubTitle>
-            <StyledTitle>The Star Wars</StyledTitle>
-            <StyledSubTitle>Encyclopedia</StyledSubTitle>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus
-              erat, efficitur sed posuere id, feugiat id orci. Curabitur
-              bibendum libero in gravida ultrices. Duis eu odio sit amet lorem
-              dignissim dignissim ac in orci. Cras sit amet cursus enim. Morbi
-              eu elit eu erat facilisis hendrerit.
-            </p>
-          </StyledHeader>
-          <Container>
-            <ListContainer home={true}>
-              {Object.keys(resource).map((key) => (
-                <StyledLink key={key} to={toResourceList({ resource: key })}>
-                  <Tile title={key} />
-                </StyledLink>
-              ))}
-            </ListContainer>
-          </Container>
-        </>
-      )}
+      <StyledHeader>
+        <StyledHeaderContainer>
+          <StyledSubTitle>Welcome to</StyledSubTitle>
+          <StyledTitle>The Star Wars</StyledTitle>
+          <StyledSubTitle>Encyclopedia</StyledSubTitle>
+          <p>A long time ago in a galaxy far, far away....</p>
+        </StyledHeaderContainer>
+      </StyledHeader>
+      <Container>
+        <ListContainer home={true}>
+          {Object.keys(resources).map((key) => (
+            <StyledLink key={key} to={toResourceList({ resource: key })}>
+              <Tile title={key} />
+            </StyledLink>
+          ))}
+        </ListContainer>
+      </Container>
     </>
   );
 };
