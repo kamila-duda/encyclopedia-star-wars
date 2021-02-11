@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledListContainer = styled.div`
-display: grid;
+  display: grid;
   grid-gap: 24px;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;

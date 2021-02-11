@@ -6,7 +6,6 @@ export const fetchFromAPI = async ({ path }) => {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-
     const data = await response.json();
     return data;
   } catch (error) {
@@ -22,6 +21,7 @@ export const fetchFromAPIdetail = async (path) => {
     }
 
     const data = await response.json();
+    
     return data;
   } catch (error) {
     console.error("ups");

@@ -14,11 +14,11 @@ function App() {
         <Route exact path={toHomePage()}>
           <HomePage />
         </Route>
-        <Route exact path={toDetailsPage()}>
-          <DetailsPage />
-        </Route>
         <Route exact path={toResourceList()}>
           <ResourceListPage />
+        </Route>
+        <Route path={toDetailsPage()}>
+          <DetailsPage />
         </Route>
         <Route path={"/"}>
           <Redirect to={toHomePage()} />

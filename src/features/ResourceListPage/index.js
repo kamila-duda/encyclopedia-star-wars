@@ -30,10 +30,10 @@ const ResourceListPage = () => {
           <StyledTitle>{resource}</StyledTitle>
           <Container>
             <ListContainer home={false}>
-              {results.map((key, index) => (
+              {results.map((key) => (
                 <StyledLink
                   key={key.name ? key.name : key.title}
-                  to={toDetailsPage({ resource: resource, id: index + 1 })}
+                  to={toDetailsPage({ path: resource, id: key.url.substring(21+resource.length+1) })}
                 >
                   <Tile title={key.name ? key.name : key.title} />
                 </StyledLink>
