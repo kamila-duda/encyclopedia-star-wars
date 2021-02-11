@@ -8,10 +8,15 @@ export const StyledWrapper = styled.div`
   padding: 15px;
   margin: auto;
 `;
+export const StyledDetailsBlock = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 15px;
+  margin: auto;
+`;
 export const StyledTileDetail = styled.ul`
-background-color: ${({theme})=>theme.color.dark};
 border-radius: 15px;
-width: 150px;
 min-height: 100px;
 margin: 5px;
 `;

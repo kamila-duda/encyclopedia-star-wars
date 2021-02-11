@@ -35,8 +35,8 @@ function* fetchDetailsHandler() {
       ? yield call(fetchExtraDetailFromAPI, detailsContent.vehicles, "name")
       : "";
     yield put(getVehiclesName(vehicles));
-    const characters = detailsContent.characters || detailsContent.residents
-      ? yield call(fetchExtraDetailFromAPI, detailsContent.characters || detailsContent.residents, "name")
+    const characters = detailsContent.characters || detailsContent.residents || detailsContent.pilots
+      ? yield call(fetchExtraDetailFromAPI, detailsContent.characters || detailsContent.residents || detailsContent.pilots, "name")
       : "";
     yield put(getCharactersName(characters));
     const planets = detailsContent.planets

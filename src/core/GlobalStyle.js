@@ -20,4 +20,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Kanit', sans-serif;
         color: ${({ theme }) => theme.color.yellow};
     }
+      p {
+      margin: 5px;
+    }
 `;
