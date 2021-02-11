@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeReducer from "../features/HomePage/homeSlice";
 import resourceListReducer from "../features/ResourceListPage/resourceListSlice";
 import detailsReducer from "../features/DetailsPage/detailsSlice";
 import createSagaMiddleware from "redux-saga";
@@ -9,7 +8,6 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    resource: homeReducer,
     resourceList: resourceListReducer,
     details: detailsReducer,
   },
