@@ -20,7 +20,7 @@ const ResourceListPage = () => {
   const { resource } = useParams();
   useEffect(() => {
     dispatch(fetchResourceContent(resource));
-  }, []);
+  }, [resource]);
   return (
     <>
       {status === "loading" ? (
