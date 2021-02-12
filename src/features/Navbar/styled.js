@@ -22,10 +22,26 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   text-decoration: none;
   color: inherit;
   width: 100%;
+  &.active {
+    border-left: 1px solid ${({ theme }) => theme.color.yellow};
+    border-right: 1px solid ${({ theme }) => theme.color.yellow};
+    box-sizing: border-box;
+  }
 `;
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   width: 100%;
   margin: 5px;
+`;
+export const StyledIcon = styled.img`
+width: 100%;
+height: 100%;
+color: ${({ theme }) => theme.color.yellow};
+`;
+export const StyledIconContainer = styled.div`
+width: 30px;
+height: 30px;
+background-color: ${({ theme }) => theme.color.yellow};
+border-radius: 50%;
 `;
