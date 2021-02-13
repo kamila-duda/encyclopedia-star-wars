@@ -25,3 +25,19 @@ export const StyledTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xxlarge};
   text-transform: capitalize;
 `;
+export const StyledPill = styled.p`
+background-color: ${({theme})=>theme.color.yellow};
+border-radius: 10px;
+flex-grow: 1;
+padding: 5px;
+margin: 5px;
+color: ${({theme})=>theme.color.dark};
+${({crawler})=>
+  crawler && css`
+  background-color: transparent;
+  border: 1px solid ${({theme})=>theme.color.yellow};
+  color: ${({theme})=>theme.color.yellow};
+  text-align: justify;
+  line-height: 2;
+  `}
+`;

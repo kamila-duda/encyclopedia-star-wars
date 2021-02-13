@@ -9,7 +9,7 @@ import {
   selectDetailsStatus,
   selectDetailsState,
 } from "./detailsSlice";
-import { StyledTitle, StyledWrapper,  StyledTileDetail, StyledDetailsBlock } from "./styled";
+import { StyledTitle, StyledWrapper, StyledPill, StyledTileDetail, StyledDetailsBlock } from "./styled";
 
 
 const DetailsPage = () => {
@@ -26,6 +26,10 @@ const DetailsPage = () => {
   const status = useSelector(selectDetailsStatus);
   const {starships, characters, vehicles, films, planets, species, homeworld} = useSelector(selectDetailsState);
 
+  if (status === "error") {
+    return <ErrorPage />;
+  }
+
   return (
     <>
       {status === "loading" ? (
@@ -37,46 +41,46 @@ const DetailsPage = () => {
               {results.name ? results.name : results.title}
             </StyledTitle>
             <StyledWrapper>
-            {results.opening_crawl ? <p>Opening crawl: {results.opening_crawl} </p> : ""}
+            {results.opening_crawl ? <StyledPill crawler={true}>Opening crawl: {results.opening_crawl} </StyledPill> : ""}
             <StyledDetailsBlock>
-              {results.height ? <p>Height: {results.height}</p> : ""}
-              {results.mass ? <p>Mass: {results.mass} kg</p> : ""}
-              {results.hair_color ? <p>Hair color: { results.hair_color}</p> : ""}
-              {results.skin_color ? <p>Skin color: {results.skin_color}</p> : ""}
-              {results.eye_color ? <p>Eye color: {results.eye_color}</p> : ""}
-              {results.birth_year ? <p>Birth year:  {results.birth_year}</p> : ""}
-              {results.gender ? <p>Gender: {results.gender} </p> : ""}
-              {results.homeworld ? <p>Homeworld: {homeworld} </p> : ""}
-              {results.model ? <p>Model: {results.model} </p> : ""}
-              {results.manufacturer ? <p>Manufacturer: {results.manufacturer} </p> : ""}
-              {results.length ? <p>Length: {results.length} </p> : ""}
-              {results.max_atmosphering_speed ? <p>Max_atmosphering_speed: {results.max_atmosphering_speed} </p> : ""}
-              {results.crew ? <p>Crew: {results.crew} </p> : ""}
-              {results.passengers ? <p>Passengers: {results.passengers} </p> : ""}
-              {results.cargo_capacity ? <p>Cargo capacity: {results.cargo_capacity} </p> : ""}
-              {results.vehicle_class ? <p>Vehicle_class: {results.vehicle_class} </p> : ""}
-              {results.rotation_period ? <p>Rotation_period: {results.rotation_period} </p> : ""}
-              {results.orbital_period ? <p>Orbital_period: {results.orbital_period} </p> : ""}
-              {results.diameter ? <p>Diameter: {results.diameter} </p> : ""}
-              {results.climate ? <p>Climate: {results.climate} </p> : ""}
-              {results.gravity ? <p>Gravity: {results.gravity} </p> : ""}
-              {results.terrain ? <p>Terrain: {results.terrain} </p> : ""}
-              {results.surface_watern ? <p>Surface water: {results.surface_water} </p> : ""}
-              {results.population ? <p>Population: {results.population} </p> : ""}
-              {results.hyperdrive_rating ? <p>Hyperdrive rating: {results.hyperdrive_rating} </p> : ""}
-              {results.MGLT ? <p>MGLT: {results.MGLT} </p> : ""}
-              {results.starship_class ? <p>Starship class: {results.starship_class} </p> : ""}
-              {results.episode_id ? <p>Episode: {results.episode_id} </p> : ""}
-              {results.director ? <p>Director: {results.director} </p> : ""}
-              {results.producer ? <p>Producer: {results.producer} </p> : ""}
-              {results.release_date ? <p>Release date: {results.release_date} </p> : ""}
-              {results.classification ? <p>Classification: {results.classification} </p> : ""}
-              {results.designation ? <p>Designation: {results.designation} </p> : ""}
-              {results.average_height ? <p>Average height: {results.average_height} </p> : ""}
-              {results.skin_colors ? <p>Skin colors: {results.skin_colors} </p> : ""}
-              {results.hair_colors ? <p>Hair colors: {results.hair_colors} </p> : ""}
-              {results.eye_colors ? <p>Eye colors: {results.eye_colors} </p> : ""}
-              {results.language ? <p>Language: {results.language} </p> : ""}
+              {results.height ? <StyledPill>Height: {results.height}</StyledPill> : ""}
+              {results.mass ? <StyledPill>Mass: {results.mass} kg</StyledPill> : ""}
+              {results.hair_color ? <StyledPill>Hair color: { results.hair_color}</StyledPill> : ""}
+              {results.skin_color ? <StyledPill>Skin color: {results.skin_color}</StyledPill> : ""}
+              {results.eye_color ? <StyledPill>Eye color: {results.eye_color}</StyledPill> : ""}
+              {results.birth_year ? <StyledPill>Birth year:  {results.birth_year}</StyledPill> : ""}
+              {results.gender ? <StyledPill>Gender: {results.gender} </StyledPill> : ""}
+              {results.homeworld ? <StyledPill>Homeworld: {homeworld} </StyledPill> : ""}
+              {results.model ? <StyledPill>Model: {results.model} </StyledPill> : ""}
+              {results.manufacturer ? <StyledPill>Manufacturer: {results.manufacturer} </StyledPill> : ""}
+              {results.length ? <StyledPill>Length: {results.length} </StyledPill> : ""}
+              {results.max_atmosphering_speed ? <StyledPill>Max_atmosphering_speed: {results.max_atmosphering_speed} </StyledPill> : ""}
+              {results.crew ? <StyledPill>Crew: {results.crew} </StyledPill> : ""}
+              {results.passengers ? <StyledPill>Passengers: {results.passengers} </StyledPill> : ""}
+              {results.cargo_capacity ? <StyledPill>Cargo capacity: {results.cargo_capacity} </StyledPill> : ""}
+              {results.vehicle_class ? <StyledPill>Vehicle_class: {results.vehicle_class} </StyledPill> : ""}
+              {results.rotation_period ? <StyledPill>Rotation_period: {results.rotation_period} </StyledPill> : ""}
+              {results.orbital_period ? <StyledPill>Orbital_period: {results.orbital_period} </StyledPill> : ""}
+              {results.diameter ? <StyledPill>Diameter: {results.diameter} </StyledPill> : ""}
+              {results.climate ? <StyledPill>Climate: {results.climate} </StyledPill> : ""}
+              {results.gravity ? <StyledPill>Gravity: {results.gravity} </StyledPill> : ""}
+              {results.terrain ? <StyledPill>Terrain: {results.terrain} </StyledPill> : ""}
+              {results.surface_watern ? <StyledPill>Surface water: {results.surface_water} </StyledPill> : ""}
+              {results.population ? <StyledPill>Population: {results.population} </StyledPill> : ""}
+              {results.hyperdrive_rating ? <StyledPill>Hyperdrive rating: {results.hyperdrive_rating} </StyledPill> : ""}
+              {results.MGLT ? <StyledPill>MGLT: {results.MGLT} </StyledPill> : ""}
+              {results.starship_class ? <StyledPill>Starship class: {results.starship_class} </StyledPill> : ""}
+              {results.episode_id ? <StyledPill>Episode: {results.episode_id} </StyledPill> : ""}
+              {results.director ? <StyledPill>Director: {results.director} </StyledPill> : ""}
+              {results.producer ? <StyledPill>Producer: {results.producer} </StyledPill> : ""}
+              {results.release_date ? <StyledPill>Release date: {results.release_date} </StyledPill> : ""}
+              {results.classification ? <StyledPill>Classification: {results.classification} </StyledPill> : ""}
+              {results.designation ? <StyledPill>Designation: {results.designation} </StyledPill> : ""}
+              {results.average_height ? <StyledPill>Average height: {results.average_height} </StyledPill> : ""}
+              {results.skin_colors ? <StyledPill>Skin colors: {results.skin_colors} </StyledPill> : ""}
+              {results.hair_colors ? <StyledPill>Hair colors: {results.hair_colors} </StyledPill> : ""}
+              {results.eye_colors ? <StyledPill>Eye colors: {results.eye_colors} </StyledPill> : ""}
+              {results.language ? <StyledPill>Language: {results.language} </StyledPill> : ""}
               </StyledDetailsBlock>
               <StyledDetailsBlock>
               {starships? (starships.length>0 ? (

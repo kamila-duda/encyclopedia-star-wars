@@ -5,7 +5,6 @@ export const resourceListSlice = createSlice({
   initialState: {
     status: "initial",
     checkResource: "",
-    //resourceContent: [],
     results: [],
   },
   reducers: {
@@ -14,7 +13,6 @@ export const resourceListSlice = createSlice({
     }),
     fetchResourceContentSuccess: (state, { payload: results }) => {
       state.status = "success";
-     // state.resourceContent = results;
      state.results = results;
     },
     fetchResourceContent: (state) => {
@@ -30,8 +28,6 @@ export const {
 } = resourceListSlice.actions;
 
 const selectResourceState = (state) => state.resourceList;
-//export const selectResourceContent = (state) =>
- // selectResourceState(state).resourceContent;
 export const selectResourceResults = (state) =>
   selectResourceState(state).results;
 export const selectResourceContentStatus = (state) =>
