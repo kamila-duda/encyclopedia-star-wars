@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
 `;
 export const StyledDetailsBlock = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   height: auto;
   padding: 15px;
   margin: auto;

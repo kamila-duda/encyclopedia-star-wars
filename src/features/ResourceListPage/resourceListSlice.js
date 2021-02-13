@@ -17,9 +17,9 @@ export const resourceListSlice = createSlice({
       state.resourceContent = resourceContent;
       state.results = resourceContent.results;
     },
-    fetchResourceContent: (state, { payload: key }) => {
+    fetchResourceContent: (state) => {
       state.status = "loading";
-      state.checkResource = key;
+      //state.checkResource = key;
     },
   },
 });

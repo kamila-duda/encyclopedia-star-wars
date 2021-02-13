@@ -18,11 +18,10 @@ import {
   getFilmsTitle
 } from "./detailsSlice";
 
-function* fetchDetailsHandler() {
+function* fetchDetailsHandler({payload}) {
   try {
     yield delay(500);
-    const path = store.getState().details.path;
-    const detailsContent = yield call(fetchFromAPI, { path: path });
+    const detailsContent = yield call(fetchFromAPI, payload);
     const homeworld = detailsContent.homeworld
       ? yield call(fetchFromAPIdetail, detailsContent.homeworld)
       : "";
@@ -52,15 +51,6 @@ function* fetchDetailsHandler() {
     yield put(getDetailsError());
   }
 }
-// function* fetchExtraDetailsHandler() {
-//   try {
-//     const starships = store.getState().details.starships;
-//     const starshipsName = yield call(fetchFromAPIdetail, {path:})
-//   } catch (error) {
-//     yield put(getDetailsError());
-//   }
-// }
 export function* watchFetchDetails() {
   yield takeEvery(getDetails.type, fetchDetailsHandler);
-  // yield takeEvery(getDetailsSuccess.type, fetchExtraDetailsHandler);
 }

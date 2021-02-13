@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import Container from "../../common/Container";
 import Loading from "../../common/Loading";
+import { useQueryParameter } from "../../core/queryParameter";
 import { fetchExtraDetailFromAPI, fetchFromAPIdetail } from "../fetchFromAPI";
+import { key } from "../Navbar/Search/searchQueryParameter";
+import { fetchResourceContent } from "../ResourceListPage/resourceListSlice";
 import {
   getDetails,
   selectDetailsResults,
@@ -12,17 +15,31 @@ import {
 } from "./detailsSlice";
 import { StyledTitle, StyledWrapper,  StyledTileDetail, StyledDetailsBlock } from "./styled";
 
+
 const DetailsPage = () => {
+
   const dispatch = useDispatch();
   const { path, id } = useParams();
-
+  const query = useQueryParameter(key);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const history = useHistory();
   useEffect(() => {
-    dispatch(getDetails(`${path}/${id}`));
-  }, []);
+      if(id) {
+        dispatch(getDetails({path, id}));
+      }
+  }, [dispatch, id]);
 
   const results = useSelector(selectDetailsResults);
   const status = useSelector(selectDetailsStatus);
   const {starships, characters, vehicles, films, planets, species, homeworld} = useSelector(selectDetailsState);
+
+  useEffect(() => {
+    if (query !== null) {
+      console.log(searchParams.toString())
+      history.push(`/${path}/?${searchParams.toString()}`);
+    }
+  }, [path]);
 
   return (
     <>

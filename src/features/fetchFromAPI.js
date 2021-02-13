@@ -1,8 +1,8 @@
 const API_URL = "https://swapi.dev/api/";
 
-export const fetchFromAPI = async ({ path }) => {
+export const fetchFromAPI = async ( {path, id, query} ) => {
   try {
-    const response = await fetch(`${API_URL}${path}`);
+    const response = query? ( await fetch(`${API_URL}${path}?search=${query}`) ) : ( id? await fetch(`${API_URL}${path}/${id}`) : await fetch(`${API_URL}${path}`));
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -15,6 +15,7 @@ export const fetchFromAPI = async ({ path }) => {
 
 export const fetchFromAPIdetail = async (path) => {
   try {
+    console.log("OK")
     const response = await fetch(path);
     if (!response.ok) {
       throw new Error(response.statusText);

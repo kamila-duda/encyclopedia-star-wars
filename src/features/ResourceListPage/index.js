@@ -10,30 +10,37 @@ import {
 } from "./resourceListSlice";
 import { StyledLink, StyledTitle } from "./styled";
 import { toDetailsPage } from "../../core/routes";
-import { useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import Loading from "../../common/Loading";
+import { useQueryParameter } from "../../core/queryParameter";
+import { key } from "../Navbar/Search/searchQueryParameter";
+
 
 const ResourceListPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectResourceContentStatus);
   const results = useSelector(selectResourceResults);
-  const { resource } = useParams();
+  const { path } = useParams();
+  const query = useQueryParameter(key);
+  
   useEffect(() => {
-    dispatch(fetchResourceContent(resource));
-  }, [resource]);
+    dispatch(fetchResourceContent({path, query}));
+  }, [dispatch, path, query]);
+
+
   return (
     <>
       {status === "loading" ? (
         <Loading/>
       ) : (
         <>
-          <StyledTitle>{resource}</StyledTitle>
+          <StyledTitle>{path}</StyledTitle>
           <Container>
             <ListContainer home={false}>
               {results.map((key) => (
                 <StyledLink
                   key={key.name ? key.name : key.title}
-                  to={toDetailsPage({ path: resource, id: key.url.substring(21+resource.length+1) })}
+                  to={toDetailsPage({ path: path, id: key.url.substring(21+path.length+1) })}
                 >
                   <Tile title={key.name ? key.name : key.title} />
                 </StyledLink>

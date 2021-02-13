@@ -15,8 +15,7 @@ export const detailsSlice = createSlice({
     homeworld: "",
   },
   reducers: {
-    getDetails: (state, { payload: path }) => {
-      state.path = path;
+    getDetails: (state) => {
       state.status = "loading";
     },
     getDetailsSuccess: (state, { payload: details }) => {

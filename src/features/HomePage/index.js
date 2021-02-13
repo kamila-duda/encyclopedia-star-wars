@@ -10,7 +10,7 @@ import {
   StyledLink,
   StyledTitle,
 } from "./styled";
-import { resources } from "../../resources";
+import { resources } from "../../core/resources";
 
 const HomePage = () => {
   return (
@@ -26,7 +26,7 @@ const HomePage = () => {
       <Container>
         <ListContainer home={true}>
           {Object.keys(resources).map((key) => (
-            <StyledLink key={key} to={toResourceList({ resource: key })}>
+            <StyledLink key={key} to={toResourceList({ path: key })}>
               <Tile title={key} />
             </StyledLink>
           ))}
