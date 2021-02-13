@@ -23,7 +23,7 @@ export const StyledListContainer = styled.div`
         grid-template-columns: repeat(2, 1fr);
       }
       @media (max-width: ${({ theme }) => theme.media.mobile}) {
-        grid-template-columns: repeat(1, 45%);
+        grid-template-columns: repeat(1, 1fr);
       }
     `}
 `;
