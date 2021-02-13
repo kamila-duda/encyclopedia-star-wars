@@ -90,52 +90,52 @@ const DetailsPage = () => {
                 ""
               )):""}
               {characters? (characters.length>0 ? (
-                <ul>
+                <StyledTileDetail>
                   CHARACTERS:
                   {characters.map((person) => (
                     <li key={person}>{`${person}, `}</li>
                   ))}
-                </ul>
+                </StyledTileDetail>
               ) : (
                 ""
               )):""}
               {planets? (planets.length>0 ? (
-                <ul>
+                <StyledTileDetail>
                   PLANETS:
                   {planets.map((planet) => (
                     <li key={planet}>{`${planet}, `}</li>
                   ))}
-                </ul>
+                </StyledTileDetail>
               ) : (
                 ""
               )):""}
               {vehicles? (vehicles.length>0 ? (
-                <ul>
+                <StyledTileDetail>
                   VEHICLES:
                   {vehicles.map((vehicle) => (
                     <li key={vehicle}>{`${vehicle}, `}</li>
                   ))}
-                </ul>
+                </StyledTileDetail>
               ) : (
                 ""
               )):""}
               {films? (films.length>0 ? (
-                <ul>
+                <StyledTileDetail>
                   FILMS:
                   {films.map((film) => (
                     <li key={film}>{`${film}, `}</li>
                   ))}
-                </ul>
+                </StyledTileDetail>
               ) : (
                 ""
               )):""}
               {species? (species.length>0 ? (
-                <ul>
+                <StyledTileDetail>
                   SPECIES:
                   {species.map((specie) => (
                     <li key={specie}>{`${specie}, `}</li>
                   ))}
-                </ul>
+                </StyledTileDetail>
               ) : (
                 ""
               )):""}
