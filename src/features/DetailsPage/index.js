@@ -2,6 +2,7 @@ import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Container from "../../common/Container";
+import ErrorPage from "../../common/ErrorPage";
 import Loading from "../../common/Loading";
 import {
   getDetails,
