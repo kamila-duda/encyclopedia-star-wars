@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ListContainer from "../../common/ListContainer";
 import Tile from "../../common/Tile";
@@ -8,12 +8,13 @@ import {
   selectResourceContentStatus,
   selectResourceResults,
 } from "./resourceListSlice";
-import { StyledLink, StyledTitle } from "./styled";
-import { toDetailsPage } from "../../core/routes";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { StyledLink, StyledPill, StyledSearchLine, StyledTitle } from "./styled";
+import { toDetailsPage, toResourceList } from "../../core/routes";
+import { useParams } from "react-router-dom";
 import Loading from "../../common/Loading";
 import { useQueryParameter } from "../../core/queryParameter";
 import { key } from "../Navbar/Search/searchQueryParameter";
+import Search from "../Navbar/Search";
 
 
 const ResourceListPage = () => {
@@ -22,11 +23,11 @@ const ResourceListPage = () => {
   const results = useSelector(selectResourceResults);
   const { path } = useParams();
   const query = useQueryParameter(key);
-  
+
   useEffect(() => {
     dispatch(fetchResourceContent({path, query}));
   }, [dispatch, path, query]);
-
+ 
 
   return (
     <>
@@ -35,7 +36,9 @@ const ResourceListPage = () => {
       ) : (
         <>
           <StyledTitle>{path}</StyledTitle>
+          {query? <StyledSearchLine>{`searching word: ${query} (${results.length})`}<StyledLink to={toResourceList({ path })}><StyledPill>❌</StyledPill></StyledLink></StyledSearchLine> : ""}
           <Container>
+            <Search/>
             <ListContainer home={false}>
               {results.map((key) => (
                 <StyledLink

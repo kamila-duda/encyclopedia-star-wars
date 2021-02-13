@@ -11,17 +11,14 @@ function App() {
     <HashRouter>
       <Navbar/>
       <Switch>
-        <Route exact path={toHomePage()}>
-          <HomePage />
-        </Route>
         <Route  path={toDetailsPage()}>
           <DetailsPage />
         </Route>
         <Route path={toResourceList()}>
           <ResourceListPage />
         </Route>
-        <Route path={"/"}>
-          <Redirect to={toHomePage()} />
+        <Route path={toHomePage()}>
+          <HomePage />
         </Route>
       </Switch>
     </HashRouter>

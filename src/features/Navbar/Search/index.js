@@ -27,7 +27,7 @@ const Search = () => {
         key: key,
         value: target.value.trim() !== "" ? target.value.trim() : "",
       });
-    }, 1000);
+    }, 2000);
 
   };
   return (
