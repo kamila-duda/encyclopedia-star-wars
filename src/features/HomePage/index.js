@@ -13,6 +13,7 @@ import {
 import { resources } from "../../core/resources";
 
 const HomePage = () => {
+  
   return (
     <>
       <StyledHeader>

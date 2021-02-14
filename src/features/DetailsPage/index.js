@@ -23,6 +23,8 @@ const DetailsPage = () => {
       }
   }, [dispatch, id]);
 
+
+
   const results = useSelector(selectDetailsResults);
   const status = useSelector(selectDetailsStatus);
   const {starships, characters, vehicles, films, planets, species, homeworld} = useSelector(selectDetailsState);
