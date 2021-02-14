@@ -4,7 +4,6 @@ export const resourceListSlice = createSlice({
   name: "resourceList",
   initialState: {
     status: "initial",
-    checkResource: "",
     results: [],
   },
   reducers: {
@@ -13,7 +12,7 @@ export const resourceListSlice = createSlice({
     }),
     fetchResourceContentSuccess: (state, { payload: results }) => {
       state.status = "success";
-     state.results = results;
+      state.results = results;
     },
     fetchResourceContent: (state) => {
       state.status = "loading";
