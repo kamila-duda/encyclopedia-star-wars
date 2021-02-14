@@ -22,6 +22,7 @@ import { useQueryParameter } from "../../core/queryParameter";
 import { key } from "../Navbar/Search/searchQueryParameter";
 import Search from "../Navbar/Search";
 import EmptyResultsPage from "../../common/EmptyResultsPage";
+import { clearState } from "../DetailsPage/detailsSlice";
 
 const ResourceListPage = () => {
   const dispatch = useDispatch();
@@ -57,19 +58,24 @@ const ResourceListPage = () => {
           )}
           <Container>
             <Search />
-            {results.length===0 ? <EmptyResultsPage query={query}/>:(<ListContainer home={false}>
-              {results.map((key) => (
-                <StyledLink
-                  key={key.name ? key.name : key.title}
-                  to={toDetailsPage({
-                    path: path,
-                    id: key.url.substring(21 + path.length + 1),
-                  })}
-                >
-                  <Tile title={key.name ? key.name : key.title} />
-                </StyledLink>
-              ))}
-            </ListContainer>)}
+            {results.length === 0 ? (
+              <EmptyResultsPage query={query} />
+            ) : (
+              <ListContainer home={false}>
+                {results.map((key) => (
+                  <StyledLink
+                    key={key.name ? key.name : key.title}
+                    to={toDetailsPage({
+                      path: path,
+                      id: key.url.substring(21 + path.length + 1),
+                    })}
+                    onClick={() => dispatch(clearState())}
+                  >
+                    <Tile title={key.name ? key.name : key.title} />
+                  </StyledLink>
+                ))}
+              </ListContainer>
+            )}
           </Container>
         </>
       )}

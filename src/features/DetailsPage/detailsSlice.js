@@ -20,7 +20,6 @@ export const detailsSlice = createSlice({
     },
     getDetailsSuccess: (state, { payload: details }) => {
       state.details = details;
-      
       state.status = "success";
     },
     getDetailsError: () => ({
@@ -47,6 +46,17 @@ export const detailsSlice = createSlice({
     getHomeworld: (state, { payload: homeworld }) => {
       state.homeworld = homeworld;
     },
+    clearState: (state) => {
+      state.path = "";
+      state.details = {};
+      state.films = [];
+      state.vehicles = [];
+      state.starships = [];
+      state.characters = [];
+      state.plantes = [];
+      state.species = [];
+      state.homeworld = "";
+    },
   },
 });
 
@@ -61,12 +71,12 @@ export const {
   getPlanetsName,
   getSpeciesName,
   getHomeworld,
+  clearState,
 } = detailsSlice.actions;
 
 export const selectDetailsState = (state) => state.details;
 export const selectDetailsResults = (state) =>
   selectDetailsState(state).details;
-  export const selectDetailsStatus = (state) =>
-  selectDetailsState(state).status;
+export const selectDetailsStatus = (state) => selectDetailsState(state).status;
 
 export default detailsSlice.reducer;
