@@ -1,4 +1,4 @@
-import { call, put, delay, takeEvery } from "redux-saga/effects";
+import { call, put, delay, takeLatest } from "redux-saga/effects";
 import { fetchFromAPI, fetchFromAPIdetail } from "../../features/fetchFromAPI";
 import { fetchResourceContent, fetchResourceContentError, fetchResourceContentSuccess } from "./resourceListSlice";
 
@@ -19,5 +19,5 @@ function* fetchResourceContentHandler({payload}) {
   }
 }
 export function* watchFetchList() {
-  yield takeEvery(fetchResourceContent.type, fetchResourceContentHandler);
+  yield takeLatest(fetchResourceContent.type, fetchResourceContentHandler);
 }
