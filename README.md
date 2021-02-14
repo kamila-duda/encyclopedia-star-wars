@@ -1,4 +1,38 @@
+# The Star Wars Encyclopedia
+
+Live demo: https://kamila-duda.github.io/encyclopedia-star-wars/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Contact](#contact)
+* [Available Scripts](#available-scripts)
+
+## General info
+The Stars Wars Encyclopedia include data from https://swapi.dev/.
+
+How application looks:
+![image of application](https://github.com/kamila-duda/encyclopedia-star-wars/blob/main/src/assets/share.PNG?raw=true)
+
+Screen film's category:
+![screen from app](https://github.com/kamila-duda/encyclopedia-star-wars/blob/main/src/assets/screen.PNG?raw=true)
+
+## Technologies
+* Html
+* Css
+* JavaScript
+* React.js
+* Redux
+* redux-saga
+* react-router-dom
+* @reduxjs/toolkit
+* styled-components
+
+
+## Contact
+Created by [@Kamila Duda](https://github.com/kamila-duda)
 
 ## Available Scripts
 
@@ -11,11 +45,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
