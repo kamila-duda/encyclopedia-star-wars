@@ -2,7 +2,6 @@ const API_URL = "https://swapi.dev/api/";
 
 export const fetchFromAPI = async ({ path, id, query }) => {
   try {
-    console.log(`${API_URL}${path}?search=${query}`)
     const response = query
       ? await fetch(`${API_URL}${path}?search=${query}`)
       : id
