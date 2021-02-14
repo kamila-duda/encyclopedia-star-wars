@@ -27,14 +27,14 @@ const Search = () => {
         key: key,
         value: target.value.trim() !== "" ? target.value.trim() : "",
       });
-    }, 2000);
+    }, 3000);
 
   };
   return (
     <StyledLabel>
       <StyledIcon src={search} />
       <StyledInput
-        placeholder={`Search ${path==="/home"? "..." : `${path.substring(1, path.length-1)}...`} `}
+        placeholder={`Search ${path.substring(1, path.length-1)}...`}
         value={searchQuery || ""}
         onChange={onInputChange}
       />
