@@ -1,9 +1,9 @@
 export const resources =  
     {
-        "people": "http://swapi.dev/api/people/", 
-        "planets": "http://swapi.dev/api/planets/", 
-        "films": "http://swapi.dev/api/films/", 
-        "species": "http://swapi.dev/api/species/", 
-        "vehicles": "http://swapi.dev/api/vehicles/", 
-        "starships": "http://swapi.dev/api/starships/"
+        "people": "https://swapi.dev/api/people/", 
+        "planets": "https://swapi.dev/api/planets/", 
+        "films": "https://swapi.dev/api/films/", 
+        "species": "https://swapi.dev/api/species/", 
+        "vehicles": "https://swapi.dev/api/vehicles/", 
+        "starships": "https://swapi.dev/api/starships/"
     }
