@@ -5,8 +5,6 @@ export const StyledHeader = styled.header`
 max-width: 1200px;
 margin: auto;
 text-align: center;
-position: relative;
-perspective: 500px;
 `;
 export const StyledTitle = styled.h1`
 font-size: ${({theme})=> theme.fontSize.xxxLarge};
@@ -17,6 +15,11 @@ font-size: ${({theme})=> theme.fontSize.xlarge};
 margin: 5px;
 `;
 export const StyledHeaderContainer = styled.div`
+transform: rotateX(40deg) rotateY(0deg);
+width: 80%;
+margin: auto;
+`;
+export const StyledPerspectiveContainer = styled.div`
 transform: rotateX(40deg) rotateY(0deg);
 width: 80%;
 margin: auto;

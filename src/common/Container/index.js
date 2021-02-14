@@ -1,12 +1,8 @@
 import React from "react";
 import { StyledContainer } from "./styled";
 
-const Container = (props) => {
-    return (
-        <StyledContainer>
-            {props.children}
-        </StyledContainer>
-    )
+const Container = ({children, home}) => {
+  return <StyledContainer home={home}>{children}</StyledContainer>;
 };
 
 export default Container;

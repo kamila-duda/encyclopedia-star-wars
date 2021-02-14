@@ -5,33 +5,32 @@ import Container from "../../common/Container";
 import { toResourceList } from "../../core/routes";
 import {
   StyledHeader,
-  StyledHeaderContainer,
   StyledSubTitle,
   StyledLink,
   StyledTitle,
+  StyledPerspectiveContainer,
 } from "./styled";
 import { resources } from "../../core/resources";
 
 const HomePage = () => {
-  
   return (
     <>
-      <StyledHeader>
-        <StyledHeaderContainer>
-          <StyledSubTitle>Welcome to</StyledSubTitle>
-          <StyledTitle>The Star Wars</StyledTitle>
-          <StyledSubTitle>Encyclopedia</StyledSubTitle>
-          <p>A long time ago in a galaxy far, far away....</p>
-        </StyledHeaderContainer>
-      </StyledHeader>
-      <Container>
-        <ListContainer home={true}>
-          {Object.keys(resources).map((key) => (
-            <StyledLink key={key} to={toResourceList({ path: key })}>
-              <Tile title={key} />
-            </StyledLink>
-          ))}
-        </ListContainer>
+      <Container home={true}>
+        <StyledPerspectiveContainer>
+          <StyledHeader>
+            <StyledSubTitle>Welcome to</StyledSubTitle>
+            <StyledTitle>The Star Wars</StyledTitle>
+            <StyledSubTitle>Encyclopedia</StyledSubTitle>
+            <p>A long time ago in a galaxy far, far away....</p>
+          </StyledHeader>
+          <ListContainer home={true}>
+            {Object.keys(resources).map((key) => (
+              <StyledLink key={key} to={toResourceList({ path: key })}>
+                <Tile title={key} />
+              </StyledLink>
+            ))}
+          </ListContainer>
+        </StyledPerspectiveContainer>
       </Container>
     </>
   );
