@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
 display: flex;
+flex-wrap: wrap;
 justify-content: space-between;
 border-bottom:1px dotted ${({theme})=>theme.color.yellow};
 `;
 export const StyledNavbarMenu = styled.ul`
 display: flex;
+flex-wrap: wrap;
 padding: 0;
 margin: 0;
+justify-content: center;
 `;
 export const StyledNavbarItem = styled.li`
 list-style: none;
@@ -21,7 +24,6 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   }))`
   text-decoration: none;
   color: inherit;
-  width: 100%;
   &.active {
     border-left: 1px solid ${({ theme }) => theme.color.yellow};
     border-right: 1px solid ${({ theme }) => theme.color.yellow};
@@ -31,7 +33,6 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
-  width: 100%;
   margin: 5px;
 `;
 export const StyledIcon = styled.img`

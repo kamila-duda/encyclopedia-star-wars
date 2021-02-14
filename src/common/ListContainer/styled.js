@@ -5,13 +5,9 @@ export const StyledListContainer = styled.div`
   grid-gap: 24px;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  height: auto;
   padding: 15px;
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
     grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    grid-template-columns: 1fr;
   }
   ${({ home }) =>
     home &&
@@ -21,9 +17,6 @@ export const StyledListContainer = styled.div`
 
       @media (max-width: ${({ theme }) => theme.media.tablet}) {
         grid-template-columns: repeat(2, 1fr);
-      }
-      @media (max-width: ${({ theme }) => theme.media.mobile}) {
-        grid-template-columns: repeat(1, 1fr);
       }
     `}
 `;

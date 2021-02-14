@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const StyledTileContainer = styled.div`
   width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid ${({ theme }) => theme.color.yellow};
   border-radius: 15px;
   background-color: ${({ theme }) => theme.color.dark};
