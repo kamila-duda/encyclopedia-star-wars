@@ -11,21 +11,19 @@ const ListItems = ({ data }) => {
   //const query = useQueryParameter(key);
 
   return (
-    <>
+    <Container>
       <StyledTitle>{location.pathname.replace("/", "")}</StyledTitle>
-      <Container>
-        <ListContainer home={false}>
-          {data.map((key, i) => (
-            <StyledLink
-              key={i}
-              to={toDetailsPage({ path: location.pathname, id: key.id })}
-            >
-              <Tile title={key.name ? key.name : key.title} />
-            </StyledLink>
-          ))}
-        </ListContainer>
-      </Container>
-    </>
+      <ListContainer home={false}>
+        {data.map((key, i) => (
+          <StyledLink
+            key={i}
+            to={toDetailsPage({ path: location.pathname, id: key.id })}
+          >
+            <Tile title={key.name ? key.name : key.title} />
+          </StyledLink>
+        ))}
+      </ListContainer>
+    </Container>
   );
 };
 

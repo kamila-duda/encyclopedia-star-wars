@@ -1,10 +1,10 @@
 export const theme = {
   fontSize: {
-    xSmall: "10px",
-    small: "14px",
-    normal: "16px",
-    medium: "18px",
-    large: "20px",
+    xSmall: "14px",
+    small: "16px",
+    normal: "18px",
+    medium: "20px",
+    large: "22px",
     xlarge: "24px",
     xxlarge: "36px",
     xxxLarge: "64px",

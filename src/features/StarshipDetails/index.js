@@ -10,6 +10,7 @@ import {
   StyledWrapper,
   StyledDetailsBlock,
   StyledTileDetail,
+  ListItem,
 } from "../styled";
 
 const StarshipDetails = ({ id }) => {
@@ -73,12 +74,14 @@ const StarshipDetails = ({ id }) => {
           {data.starship.cargoCapacity && (
             <Pill>Cargo capacity: {data.starship.cargoCapacity} kilograms</Pill>
           )}
+        </StyledDetailsBlock>
+        <StyledDetailsBlock>
           {data.starship.manufacturers?.length > 0 && (
             <Pill>
               <StyledTileDetail>
                 Manufacturers:
                 {data.starship.manufacturers.map((manufacturer) => {
-                  return <li key={manufacturer}>{manufacturer}</li>;
+                  return <ListItem key={manufacturer}>{manufacturer}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -88,7 +91,7 @@ const StarshipDetails = ({ id }) => {
               <StyledTileDetail>
                 Pilops:
                 {data.starship.pilotConnection.pilots.map((pilot) => {
-                  return <li key={pilot.name}>{pilot.name}</li>;
+                  return <ListItem key={pilot.name}>{pilot.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -98,7 +101,7 @@ const StarshipDetails = ({ id }) => {
               <StyledTileDetail>
                 Films:
                 {data.starship.filmConnection.films.map((film) => {
-                  return <li key={film.title}>{film.title}</li>;
+                  return <ListItem key={film.title}>{film.title}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>

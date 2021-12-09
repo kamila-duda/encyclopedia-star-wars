@@ -10,6 +10,7 @@ import {
   StyledWrapper,
   StyledTileDetail,
   StyledDetailsBlock,
+  ListItem,
 } from "../styled";
 
 const FilmDetails = ({ id }) => {
@@ -19,7 +20,6 @@ const FilmDetails = ({ id }) => {
         title
         openingCrawl
         director
-        producers
         releaseDate
         speciesConnection {
           species {
@@ -66,19 +66,14 @@ const FilmDetails = ({ id }) => {
       <StyledTitle>{data.film.title}</StyledTitle>
       <StyledWrapper>
         {data.film.openingCrawl && (
-          <Pill crawler>Opening crawl: {data.film.openingCrawl} </Pill>
+          <Pill as="p" crawler>
+            {data.film.openingCrawl}
+          </Pill>
         )}
         <StyledDetailsBlock>
           {data.film.director && <Pill>Director: {data.film.director} </Pill>}
-          {data.film.producer && <Pill>Producer: {data.film.producer} </Pill>}
-          {data.film.release_date && (
-            <Pill>Release date: {data.film.release_date} </Pill>
-          )}
-          {data.film.classification && (
-            <Pill>Classification: {data.film.classification} </Pill>
-          )}
-          {data.film.designation && (
-            <Pill>Designation: {data.film.designation} </Pill>
+          {data.film.releaseDate && (
+            <Pill>Release date: {data.film.releaseDate} </Pill>
           )}
         </StyledDetailsBlock>
         <StyledDetailsBlock>
@@ -87,17 +82,19 @@ const FilmDetails = ({ id }) => {
               <StyledTileDetail>
                 Species:
                 {data.film.speciesConnection.species.map((specie) => {
-                  return <li key={specie.name}>{specie.name}</li>;
+                  return <ListItem key={specie.name}>{specie.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
           )}
-          {data.film.speciesConnection?.species.length > 0 && (
+          {data.film.starshipConnection?.starships.length > 0 && (
             <Pill>
               <StyledTileDetail>
                 Starships:
                 {data.film.starshipConnection.starships.map((starship) => {
-                  return <li key={starship.name}>{starship.name}</li>;
+                  return (
+                    <ListItem key={starship.name}>{starship.name}</ListItem>
+                  );
                 })}
               </StyledTileDetail>
             </Pill>
@@ -107,7 +104,7 @@ const FilmDetails = ({ id }) => {
               <StyledTileDetail>
                 Vehicles:
                 {data.film.vehilcesConnection.vehicles.map((vehicle) => {
-                  return <li key={vehicle.name}>{vehicle.name}</li>;
+                  return <ListItem key={vehicle.name}>{vehicle.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -117,7 +114,9 @@ const FilmDetails = ({ id }) => {
               <StyledTileDetail>
                 Characters:
                 {data.film.characterConnection.characters.map((character) => {
-                  return <li key={character.name}>{character.name}</li>;
+                  return (
+                    <ListItem key={character.name}>{character.name}</ListItem>
+                  );
                 })}
               </StyledTileDetail>
             </Pill>
@@ -127,7 +126,7 @@ const FilmDetails = ({ id }) => {
               <StyledTileDetail>
                 Planets:
                 {data.film.planetConnection.planets.map((planet) => {
-                  return <li key={planet.name}>{planet.name}</li>;
+                  return <ListItem key={planet.name}>{planet.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>

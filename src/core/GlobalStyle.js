@@ -15,12 +15,20 @@ export const GlobalStyle = createGlobalStyle`
       body {
         background-color: ${({ theme }) => theme.color.dark};
         background-image: url(${background});
-        background-size: contain;
+        background-size: 100%;
+        background-position: center;
         background-attachment: fixed;
         font-family: 'Kanit', sans-serif;
         color: ${({ theme }) => theme.color.yellow};
+        animation: moveBackground 60s ease-in-out infinite;
     }
       p {
       margin: 5px;
+    }
+
+    @keyframes moveBackground {
+      50% {
+        background-size: 120%;
+      }
     }
 `;

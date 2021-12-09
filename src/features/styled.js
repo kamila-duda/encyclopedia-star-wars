@@ -14,12 +14,18 @@ export const StyledDetailsBlock = styled.section`
   height: auto;
   padding: 15px;
   margin: auto;
+  width: 100%;
 `;
 export const StyledTileDetail = styled.ul`
   border-radius: 15px;
-  min-height: 100px;
   margin: 5px;
+  padding: 0px 20px;
 `;
+
+export const ListItem = styled.li`
+  font-size: ${({ theme }) => theme.fontSize.normal};
+`;
+
 export const StyledTitle = styled.h2`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.xxlarge};

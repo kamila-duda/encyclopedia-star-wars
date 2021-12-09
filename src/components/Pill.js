@@ -4,9 +4,11 @@ export const Pill = styled.div`
   background-color: ${({ theme }) => theme.color.yellow};
   border-radius: 10px;
   flex-grow: 1;
-  padding: 5px;
+  padding: 10px 15px;
   margin: 5px;
   color: ${({ theme }) => theme.color.dark};
+  font-size: ${({ theme }) => theme.fontSize.large};
+  height: max-content;
   ${({ crawler }) =>
     crawler &&
     css`

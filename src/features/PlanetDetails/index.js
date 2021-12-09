@@ -10,6 +10,7 @@ import {
   StyledWrapper,
   StyledDetailsBlock,
   StyledTileDetail,
+  ListItem,
 } from "../styled";
 
 const PlanetDetails = ({ id }) => {
@@ -76,12 +77,16 @@ const PlanetDetails = ({ id }) => {
           {data.planet.population && (
             <Pill>Average population: {data.planet.population} </Pill>
           )}
+        </StyledDetailsBlock>
+        <StyledDetailsBlock>
           {data.planet.residentConnection?.residents.length > 0 && (
             <Pill>
               <StyledTileDetail>
                 Residents:
                 {data.planet.residentConnection.residents.map((resident) => {
-                  return <li key={resident.name}>{resident.name}</li>;
+                  return (
+                    <ListItem key={resident.name}>{resident.name}</ListItem>
+                  );
                 })}
               </StyledTileDetail>
             </Pill>
@@ -91,7 +96,7 @@ const PlanetDetails = ({ id }) => {
               <StyledTileDetail>
                 Films:
                 {data.planet.filmConnection.films.map((film) => {
-                  return <li key={film.title}>{film.title}</li>;
+                  return <ListItem key={film.title}>{film.title}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>

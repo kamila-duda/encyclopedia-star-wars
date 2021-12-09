@@ -10,6 +10,7 @@ import {
   StyledTitle,
   StyledWrapper,
   StyledDetailsBlock,
+  ListItem,
 } from "../styled";
 
 const SpeciesDetails = ({ id }) => {
@@ -74,12 +75,14 @@ const SpeciesDetails = ({ id }) => {
               Average height: {data.species.averageHeight} centimeters
             </Pill>
           )}
+        </StyledDetailsBlock>
+        <StyledDetailsBlock>
           {data.species.eyeColors?.length > 0 && (
             <Pill>
               <StyledTileDetail>
                 Eye colors:
                 {data.species.eyeColors.map((eye) => {
-                  return <li key={eye}>{eye}</li>;
+                  return <ListItem key={eye}>{eye}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -89,7 +92,7 @@ const SpeciesDetails = ({ id }) => {
               <StyledTileDetail>
                 Hair colors:
                 {data.species.hairColors.map((color) => {
-                  return <li key={color}>{color}</li>;
+                  return <ListItem key={color}>{color}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -99,7 +102,7 @@ const SpeciesDetails = ({ id }) => {
               <StyledTileDetail>
                 Skin colors:
                 {data.species.skinColors.map((color) => {
-                  return <li key={color}>{color}</li>;
+                  return <ListItem key={color}>{color}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -109,7 +112,7 @@ const SpeciesDetails = ({ id }) => {
               <StyledTileDetail>
                 Homeworld:
                 {data.species.homeworld.map((home) => {
-                  return <li key={home.name}>{home.name}</li>;
+                  return <ListItem key={home.name}>{home.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -119,7 +122,7 @@ const SpeciesDetails = ({ id }) => {
               <StyledTileDetail>
                 People:
                 {data.species.personConnection.people.map((person) => {
-                  return <li key={person.name}>{person.name}</li>;
+                  return <ListItem key={person.name}>{person.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -129,7 +132,7 @@ const SpeciesDetails = ({ id }) => {
               <StyledTileDetail>
                 Films:
                 {data.species.filmConnection.films.map((film) => {
-                  return <li key={film.title}>{film.title}</li>;
+                  return <ListItem key={film.title}>{film.title}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>

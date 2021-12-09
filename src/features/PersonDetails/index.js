@@ -10,6 +10,7 @@ import {
   StyledWrapper,
   StyledDetailsBlock,
   StyledTileDetail,
+  ListItem,
 } from "../styled";
 
 const PersonDetails = ({ id }) => {
@@ -78,13 +79,14 @@ const PersonDetails = ({ id }) => {
           {data.person.mass && <Pill>Masss: {data.person.mass} kilograms</Pill>}
           {data.person.skinColor && (
             <Pill>Skin color: {data.person.skinColor} </Pill>
-          )}
+          )}</StyledDetailsBlock>
+          <StyledDetailsBlock>
           {data.person.homeworld?.length > 0 && (
             <Pill>
               <StyledTileDetail>
                 Homeworld:
                 {data.person.homeworld.map((home) => {
-                  return <li key={home.name}>{home.name}</li>;
+                  return <ListItem key={home.name}>{home.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -94,7 +96,7 @@ const PersonDetails = ({ id }) => {
               <StyledTileDetail>
                 Species:
                 {data.person.species.map((specie) => {
-                  return <li key={specie.name}>{specie.name}</li>;
+                  return <ListItem key={specie.name}>{specie.name}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
@@ -104,7 +106,7 @@ const PersonDetails = ({ id }) => {
               <StyledTileDetail>
                 Films:
                 {data.person.filmConnection.films.map((film) => {
-                  return <li key={film.title}>{film.title}</li>;
+                  return <ListItem key={film.title}>{film.title}</ListItem>;
                 })}
               </StyledTileDetail>
             </Pill>
