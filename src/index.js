@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./core/store";
-import { Provider } from "react-redux";
 import { theme } from "./core/theme";
 import { GlobalStyle } from "./core/GlobalStyle";
 import * as serviceWorker from "./serviceWorker";
@@ -23,14 +21,12 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <ApolloProvider client={client}>
-          <App />
-        </ApolloProvider>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

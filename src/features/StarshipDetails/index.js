@@ -5,8 +5,12 @@ import Container from "../../components/Container";
 import ErrorPage from "../../components/ErrorPage";
 import Loading from "../../components/Loading";
 import { Pill } from "../../components/Pill";
-import { StyledTileDetail } from "./styled";
-import { StyledTitle, StyledWrapper, StyledDetailsBlock } from "./styled";
+import {
+  StyledTitle,
+  StyledWrapper,
+  StyledDetailsBlock,
+  StyledTileDetail,
+} from "../styled";
 
 const StarshipDetails = ({ id }) => {
   const GET_STARSHIP_DETALS = gql`

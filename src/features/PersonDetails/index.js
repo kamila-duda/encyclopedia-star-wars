@@ -10,7 +10,7 @@ import {
   StyledWrapper,
   StyledDetailsBlock,
   StyledTileDetail,
-} from "./styled";
+} from "../styled";
 
 const PersonDetails = ({ id }) => {
   const GET_PERSON_DETALS = gql`
