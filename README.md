@@ -2,16 +2,18 @@
 
 Live demo: https://kamila-duda.github.io/encyclopedia-star-wars/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Apollo Client](https://www.apollographql.com/docs/react/) and [GraphQL](https://graphql.org/) template.
 
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Contact](#contact)
-* [Available Scripts](#available-scripts)
+
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Contact](#contact)
+- [Available Scripts](#available-scripts)
 
 ## General info
-The Stars Wars Encyclopedia include data from https://swapi.dev/.
+
+The Stars Wars Encyclopedia include data from https://swapi-graphql.netlify.app/.
 
 How application looks:
 ![image of application](https://github.com/kamila-duda/encyclopedia-star-wars/blob/main/src/assets/share.PNG?raw=true)
@@ -20,18 +22,18 @@ Screen film's category:
 ![screen from app](https://github.com/kamila-duda/encyclopedia-star-wars/blob/main/src/assets/screen.PNG?raw=true)
 
 ## Technologies
-* Html
-* Css
-* JavaScript
-* React.js
-* Redux
-* redux-saga
-* react-router-dom
-* @reduxjs/toolkit
-* styled-components
 
+- Html
+- Css
+- JavaScript
+- React.js
+- @apolloClient
+- react-router-dom
+- graphQL
+- styled-components
 
 ## Contact
+
 Created by [@Kamila Duda](https://github.com/kamila-duda)
 
 ## Available Scripts
