@@ -1,8 +1,7 @@
 import React from "react";
-import ListContainer from "../../common/ListContainer";
-import Tile from "../../common/Tile";
-import Container from "../../common/Container";
-import { toResourceList } from "../../core/routes";
+import ListContainer from "../../components/ListContainer";
+import Tile from "../../components/Tile";
+import Container from "../../components/Container";
 import {
   StyledHeader,
   StyledSubTitle,
@@ -10,7 +9,7 @@ import {
   StyledTitle,
   StyledPerspectiveContainer,
 } from "./styled";
-import { resources } from "../../core/resources";
+import { paths } from "../../core/paths";
 
 const HomePage = () => {
   return (
@@ -24,9 +23,9 @@ const HomePage = () => {
             <p>A long time ago in a galaxy far, far away....</p>
           </StyledHeader>
           <ListContainer home={true}>
-            {Object.keys(resources).map((key) => (
-              <StyledLink key={key} to={toResourceList({ path: key })}>
-                <Tile title={key} />
+            {paths.map((path) => (
+              <StyledLink key={path} to={`/${path}`}>
+                <Tile title={path} />
               </StyledLink>
             ))}
           </ListContainer>
