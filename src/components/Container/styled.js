@@ -8,5 +8,8 @@ export const StyledContainer = styled.div`
     css`
       position: relative;
       perspective: 1000px;
+      @media (max-width: ${({ theme }) => theme.media.tablet}) {
+        margin: 0 auto 0;
+      }
     `}
 `;

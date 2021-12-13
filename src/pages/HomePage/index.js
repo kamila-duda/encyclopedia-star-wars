@@ -14,7 +14,7 @@ import { paths } from "../../core/paths";
 const HomePage = () => {
   return (
     <>
-      <Container home={true}>
+      <Container home>
         <StyledPerspectiveContainer>
           <StyledHeader>
             <StyledSubTitle>Welcome to</StyledSubTitle>
@@ -22,7 +22,7 @@ const HomePage = () => {
             <StyledSubTitle>Encyclopedia</StyledSubTitle>
             <p>A long time ago in a galaxy far, far away....</p>
           </StyledHeader>
-          <ListContainer home={true}>
+          <ListContainer home>
             {paths.map((path) => (
               <StyledLink key={path} to={`/${path}`}>
                 <Tile title={path} />
