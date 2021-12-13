@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import _ from "lodash";
-import search from "../../../assets/search.svg";
+import search from "../../assets/search.svg";
 import { key } from "./searchQueryParameter";
 import {
   useQueryParameter,
   useReplaceQueryParameter,
-} from "../../../core/queryParameter";
-import { StyledIcon, StyledInput, StyledLabel } from "./styled";
+} from "../../core/queryParameter";
+import { Button, StyledIcon, StyledInput, StyledLabel } from "./styled";
 
 const Search = () => {
   const query = useQueryParameter(key);
@@ -28,16 +28,25 @@ const Search = () => {
         value: target.value.trim() !== "" ? target.value.trim() : "",
       });
     }, 3000);
-
   };
+
+  const clearQuery = () => {
+    replaceQueryParameter({
+      key: key,
+      value: "",
+    });
+    setSearchQuery("");
+  };
+
   return (
     <StyledLabel>
       <StyledIcon src={search} />
       <StyledInput
-        placeholder={`Search ${path.substring(1, path.length-1)}...`}
+        placeholder={`Search ${path.replace("/", "")}...`}
         value={searchQuery || ""}
         onChange={onInputChange}
       />
+      {query && <Button onClick={() => clearQuery()}>X</Button>}
     </StyledLabel>
   );
 };
