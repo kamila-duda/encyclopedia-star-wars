@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import Search from "../Search";
 import { useQueryParameter } from "../../core/queryParameter";
 import { key } from "../Search/searchQueryParameter";
+import EmptyResults from "../../components/EmptyResults";
 
 const ListItems = ({ data }) => {
   let location = useLocation();
@@ -32,7 +33,11 @@ const ListItems = ({ data }) => {
               <Tile title={key.name ? key.name : key.title} />
             </StyledLink>
           ))}
-      </ListContainer>
+      </ListContainer>{" "}
+      {query &&
+        data.filter((item) =>
+          (item.name ?? item.title).toLowerCase().includes(query.toLowerCase())
+        ).length < 1 && <EmptyResults query={query} />}
     </Container>
   );
 };
